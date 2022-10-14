@@ -260,13 +260,17 @@ function FourthSection({ onClick }: SectionProps) {
 }
 
 function FifthSection() {
-  const [linkURL, setLinkURL] = useState("https://hobby-butler.vercel.app/");
-
   const handleCopyText = (text: string) => {
     try {
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(text);
-        alert("클립보드에 복사되었습니다.");
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            alert("클립보드에 복사되었습니다.");
+          })
+          .catch(() => {
+            alert("복사를 다시 시도해주세요.");
+          });
       } else {
         if (!document.queryCommandSupported("copy")) {
           return alert("복사하기가 지원되지 않는 브라우저입니다.");
@@ -305,7 +309,7 @@ function FifthSection() {
           </div>
           <div
             className="flex h-14 w-32 cursor-pointer items-center  justify-center self-center rounded-full bg-white font-blackHan text-base text-[#6E39E0] sm:h-16 sm:w-48 sm:text-2xl"
-            onClick={() => handleCopyText(linkURL)}
+            onClick={() => handleCopyText("https://hobby-butler.vercel.app/")}
           >
             <span>공 유 하 기</span>
             <svg
