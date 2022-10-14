@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import useMutation from "@libs/client/useMutation";
 import { useRouter } from "next/router";
+// @ts-ignore
 import { FullPage, Slide } from "react-full-page";
 
 interface SectionProps {
