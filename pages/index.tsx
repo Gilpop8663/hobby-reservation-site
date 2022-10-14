@@ -370,10 +370,13 @@ const Home: NextPage = () => {
 
   return (
     <FullPage
-      className={cls(
-        isModal ? "fixed w-screen overflow-hidden" : "",
-        "snap-y snap-mandatory"
-      )}
+      duration={1000}
+      controlProps={{
+        className: cls(
+          isModal ? "fixed w-screen overflow-hidden" : "",
+          "snap-y snap-mandatory"
+        ),
+      }}
     >
       {isModal && (
         <div className=" fixed top-0 left-0 right-0 z-50 flex h-screen items-center  justify-center overflow-hidden bg-black/20">
