@@ -17,14 +17,14 @@ interface SectionProps {
 
 function FirstSection({ onClick }: SectionProps) {
   return (
-    <section className="relative flex h-screen snap-center flex-col justify-between bg-[#6E39E0] p-12 pb-24 text-white  sm:items-center  sm:p-12 sm:pt-20">
+    <section className=" relative flex h-screen snap-center flex-col justify-between bg-[#6E39E0] p-12 pb-24 text-white  sm:items-center  sm:p-12 sm:pt-20">
       <div className="flex w-full flex-col sm:pl-12 sm:pr-6 md:pl-24 md:pr-10 lg:pl-48 lg:pr-12 xl:pl-64  2xl:pl-96 ">
         <div className="pb-[50px]  font-blackHan text-2xl text-white sm:pb-12 sm:text-[40px]">
           취미 집사
         </div>
         <div className="flex items-start justify-between sm:items-center">
           <div className="flex flex-col items-start">
-            <span className="whitespace-pre-wrap font-blackHan text-[70px] sm:text-[50px] lg:text-[70px] small:text-[32px] tall:text-[43px]">
+            <span className="whitespace-pre-wrap font-blackHan text-[70px] sm:text-[50px] lg:text-[70px] small:text-[32px] tall:text-[43px] ">
               {"다양한\n취미생활을\n즐기고 싶은\n당신에게"}
             </span>
             <span className="mt-2 whitespace-pre-wrap font-blackOps text-sm  sm:text-lg">
@@ -42,7 +42,7 @@ function FirstSection({ onClick }: SectionProps) {
           </div>
         </div>
         <div
-          className="mt-24 flex h-24 w-2/3 cursor-pointer items-center justify-center self-center rounded-full bg-white font-blackHan text-3xl text-[#6E39E0] sm:h-[89px] sm:w-[255px]  sm:self-start"
+          className="mt-12 flex h-24 w-2/3 cursor-pointer items-center justify-center self-center rounded-full bg-white font-blackHan text-3xl text-[#6E39E0] sm:h-[89px] sm:w-[255px]  sm:self-start"
           onClick={onClick}
         >
           <span>사 전 예 약</span>
