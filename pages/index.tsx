@@ -392,7 +392,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <FullPage duration={700} controls>
+    <FullPage>
       {isModal && (
         <div className=" fixed top-0 left-0 right-0 z-50 flex h-screen items-center  justify-center overflow-hidden bg-black/20">
           <form
@@ -503,13 +503,13 @@ const Home: NextPage = () => {
         <FirstSection onClick={() => onModalClick()}></FirstSection>
       </Slide>
       <Slide>
-        <SecondSection onClick={onModalClick}></SecondSection>
+        <SecondSection onClick={() => onModalClick()}></SecondSection>
       </Slide>
       <Slide>
-        <ThirdSection onClick={onModalClick}></ThirdSection>
+        <ThirdSection onClick={() => onModalClick()}></ThirdSection>
       </Slide>
       <Slide>
-        <FourthSection onClick={onModalClick}></FourthSection>
+        <FourthSection onClick={() => onModalClick()}></FourthSection>
       </Slide>
       <Slide>
         <FifthSection></FifthSection>
