@@ -392,12 +392,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <FullPage
-      duration={700}
-      controlProps={{
-        className: cls(isModal ? "fixed w-screen overflow-hidden" : "", ""),
-      }}
-    >
+    <FullPage duration={700} controls>
       {isModal && (
         <div className=" fixed top-0 left-0 right-0 z-50 flex h-screen items-center  justify-center overflow-hidden bg-black/20">
           <form
