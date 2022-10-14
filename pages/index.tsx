@@ -260,12 +260,39 @@ function FourthSection({ onClick }: SectionProps) {
 }
 
 function FifthSection() {
-  const [linkURL, setLinkURL] = useState("https://hobby-butler.vercel.app/");
-
-  const handleCopyText = async (text: string) => {
+  const handleCopyText = (text: string) => {
     try {
-      await navigator.clipboard.writeText(text);
-      alert("복사가 되었습니다.");
+      // if (navigator.clipboard) {
+      //   navigator.clipboard
+      //     .writeText(text)
+      //     .then(() => {
+      //       alert("클립보드에 복사되었습니다.");
+      //     })
+      //     .catch(() => {
+      //       alert("복사를 다시 시도해주세요.");
+      //     });
+      // } else {
+      if (!document.queryCommandSupported("copy")) {
+        return alert("복사하기가 지원되지 않는 브라우저입니다.");
+      }
+
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.top = "0";
+      textarea.style.left = "0";
+      textarea.style.display = "fixed";
+
+      document.body.appendChild(textarea);
+      // focus() -> 사파리 브라우저 서포팅
+      textarea.focus();
+      // select() -> 사용자가 입력한 내용을 영역을 설정할 때 필요
+      textarea.select();
+      // 흐름 5.
+      document.execCommand("copy");
+      // 흐름 6.
+      document.body.removeChild(textarea);
+      alert("클립보드에 복사되었습니다.");
+      // }
     } catch (error) {
       alert("복사가 실패하였습니다.");
     }
@@ -282,7 +309,7 @@ function FifthSection() {
           </div>
           <div
             className="flex h-14 w-32 cursor-pointer items-center  justify-center self-center rounded-full bg-white font-blackHan text-base text-[#6E39E0] sm:h-16 sm:w-48 sm:text-2xl"
-            onClick={() => handleCopyText(linkURL)}
+            onClick={() => handleCopyText("https://hobby-butler.vercel.app/")}
           >
             <span>공 유 하 기</span>
             <svg
@@ -365,12 +392,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <FullPage
-      duration={700}
-      controlProps={{
-        className: cls(isModal ? "fixed w-screen overflow-hidden" : "", ""),
-      }}
-    >
+    <FullPage>
       {isModal && (
         <div className=" fixed top-0 left-0 right-0 z-50 flex h-screen items-center  justify-center overflow-hidden bg-black/20">
           <form
@@ -481,13 +503,13 @@ const Home: NextPage = () => {
         <FirstSection onClick={() => onModalClick()}></FirstSection>
       </Slide>
       <Slide>
-        <SecondSection onClick={onModalClick}></SecondSection>
+        <SecondSection onClick={() => onModalClick()}></SecondSection>
       </Slide>
       <Slide>
-        <ThirdSection onClick={onModalClick}></ThirdSection>
+        <ThirdSection onClick={() => onModalClick()}></ThirdSection>
       </Slide>
       <Slide>
-        <FourthSection onClick={onModalClick}></FourthSection>
+        <FourthSection onClick={() => onModalClick()}></FourthSection>
       </Slide>
       <Slide>
         <FifthSection></FifthSection>
