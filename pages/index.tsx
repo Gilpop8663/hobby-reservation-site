@@ -260,12 +260,7 @@ function FourthSection({ onClick }: SectionProps) {
 }
 
 function FifthSection() {
-  const router = useRouter();
-  const [linkURL, setLinkURL] = useState("");
-
-  useEffect(() => {
-    setLinkURL(window.document.location.href);
-  }, []);
+  const [linkURL, setLinkURL] = useState("https://hobby-butler.vercel.app/");
 
   const handleCopyText = async (text: string) => {
     try {
