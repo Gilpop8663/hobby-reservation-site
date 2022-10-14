@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import useMutation from "@libs/client/useMutation";
 import { useRouter } from "next/router";
+import { FullPage, Slide } from "react-full-page";
 
 interface SectionProps {
   onClick: () => void;
@@ -273,6 +274,9 @@ function FifthSection() {
       alert("복사가 실패하였습니다.");
     }
   };
+
+  useEffect(() => {}, []);
+
   return (
     <section className="relative flex h-screen snap-center flex-col justify-between bg-[#6E39E0] p-6 pt-24 pb-24 text-white sm:items-center sm:p-12 sm:pt-20">
       <div className="flex w-full flex-col sm:pl-12 sm:pr-6 md:pl-24 md:pr-10 lg:pl-48 lg:pr-12 xl:pl-64  2xl:pl-96">
@@ -346,6 +350,7 @@ interface FormProps {
 }
 
 const Home: NextPage = () => {
+  const ref = useRef<HTMLDivElement>(null);
   const {
     register,
     handleSubmit,
@@ -364,7 +369,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div
+    <FullPage
       className={cls(
         isModal ? "fixed w-screen overflow-hidden" : "",
         "snap-y snap-mandatory"
@@ -476,12 +481,22 @@ const Home: NextPage = () => {
           </form>
         </div>
       )}
-      <FirstSection onClick={() => onModalClick()}></FirstSection>
-      <SecondSection onClick={onModalClick}></SecondSection>
-      <ThirdSection onClick={onModalClick}></ThirdSection>
-      <FourthSection onClick={onModalClick}></FourthSection>
-      <FifthSection></FifthSection>
-    </div>
+      <Slide>
+        <FirstSection onClick={() => onModalClick()}></FirstSection>
+      </Slide>
+      <Slide>
+        <SecondSection onClick={onModalClick}></SecondSection>
+      </Slide>
+      <Slide>
+        <ThirdSection onClick={onModalClick}></ThirdSection>
+      </Slide>
+      <Slide>
+        <FourthSection onClick={onModalClick}></FourthSection>
+      </Slide>
+      <Slide>
+        <FifthSection></FifthSection>
+      </Slide>
+    </FullPage>
   );
 };
 
