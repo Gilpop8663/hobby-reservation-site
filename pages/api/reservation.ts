@@ -7,7 +7,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     body: { email, phone1, phone2, phone3 },
   } = req;
 
-  if (phone1 && phone2 && phone3) {
+  console.log(email, phone1, phone2, phone3);
+
+  if (phone1.length > 0 && phone2.length > 0 && phone3.length > 0) {
     await client.hobbyEmail.create({
       data: {
         email: email,
@@ -17,7 +19,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   } else {
     await client.hobbyEmail.create({
       data: {
-        email: email,
+        email: email.toString(),
+        phone: "",
       },
     });
   }
