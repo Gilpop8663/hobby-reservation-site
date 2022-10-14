@@ -19,7 +19,7 @@ interface SectionProps {
 
 function FirstSection({ onClick }: SectionProps) {
   return (
-    <section className=" relative flex h-screen snap-center flex-col justify-between bg-[#6E39E0] p-12 pb-24 text-white  sm:items-center  sm:p-12 sm:pt-20">
+    <section className=" relative flex h-screen  flex-col justify-between bg-[#6E39E0] p-12 pb-24 text-white  sm:items-center  sm:p-12 sm:pt-20">
       <div className="flex w-full flex-col sm:pl-12 sm:pr-6 md:pl-24 md:pr-10 lg:pl-48 lg:pr-12 xl:pl-64  2xl:pl-96 ">
         <div className="pb-[50px]  font-blackHan text-2xl text-white sm:pb-12 sm:text-[40px]">
           취미 집사
@@ -78,7 +78,7 @@ function FirstSection({ onClick }: SectionProps) {
 
 function SecondSection({ onClick }: SectionProps) {
   return (
-    <section className="relative flex h-screen snap-center flex-col justify-between bg-[#6E39E0] p-6 pt-24 pb-24 text-white sm:items-center sm:p-12 sm:pt-20">
+    <section className="relative flex h-screen  flex-col justify-between bg-[#6E39E0] p-6 pt-24 pb-24 text-white sm:items-center sm:p-12 sm:pt-20">
       <div className="flex w-full flex-col sm:pl-12 sm:pr-6 md:pl-24 md:pr-10 lg:pl-48 lg:pr-12 xl:pl-64  2xl:pl-96">
         <div className="flex items-start justify-between pb-[50px] sm:pb-12">
           <div className="font-blackHan text-2xl text-white sm:text-[40px]">
@@ -139,7 +139,7 @@ function SecondSection({ onClick }: SectionProps) {
 
 function ThirdSection({ onClick }: SectionProps) {
   return (
-    <section className="relative flex h-screen snap-center flex-col justify-between bg-[#6E39E0] p-6 pt-24 pb-24 text-white sm:items-center sm:p-12 sm:pt-20">
+    <section className="relative flex h-screen  flex-col justify-between bg-[#6E39E0] p-6 pt-24 pb-24 text-white sm:items-center sm:p-12 sm:pt-20">
       <div className="flex w-full flex-col sm:pl-12 sm:pr-6 md:pl-24 md:pr-10 lg:pl-48 lg:pr-12 xl:pl-64  2xl:pl-96">
         <div className="flex items-start justify-between pb-[50px] sm:pb-12">
           <div className="font-blackHan text-2xl text-white sm:text-[40px]">
@@ -200,7 +200,7 @@ function ThirdSection({ onClick }: SectionProps) {
 
 function FourthSection({ onClick }: SectionProps) {
   return (
-    <section className="relative flex h-screen snap-center flex-col justify-between bg-[#6E39E0] p-6 pt-24 pb-24 text-white sm:items-center sm:p-12 sm:pt-20">
+    <section className="relative flex h-screen  flex-col justify-between bg-[#6E39E0] p-6 pt-24 pb-24 text-white sm:items-center sm:p-12 sm:pt-20">
       <div className="flex w-full flex-col sm:pl-12 sm:pr-6 md:pl-24 md:pr-10 lg:pl-48 lg:pr-12 xl:pl-64  2xl:pl-96">
         <div className="flex items-start justify-between pb-[50px] sm:pb-12">
           <div className="font-blackHan text-2xl text-white sm:text-[40px]">
@@ -279,7 +279,7 @@ function FifthSection() {
   useEffect(() => {}, []);
 
   return (
-    <section className="relative flex h-screen snap-center flex-col justify-between bg-[#6E39E0] p-6 pt-24 pb-24 text-white sm:items-center sm:p-12 sm:pt-20">
+    <section className="relative flex h-screen  flex-col justify-between bg-[#6E39E0] p-6 pt-24 pb-24 text-white sm:items-center sm:p-12 sm:pt-20">
       <div className="flex w-full flex-col sm:pl-12 sm:pr-6 md:pl-24 md:pr-10 lg:pl-48 lg:pr-12 xl:pl-64  2xl:pl-96">
         <div className="flex items-start justify-between pb-[50px] sm:pb-12">
           <div className="font-blackHan text-2xl text-white sm:text-[40px]">
@@ -371,12 +371,9 @@ const Home: NextPage = () => {
 
   return (
     <FullPage
-      duration={1000}
+      duration={700}
       controlProps={{
-        className: cls(
-          isModal ? "fixed w-screen overflow-hidden" : "",
-          "snap-y snap-mandatory"
-        ),
+        className: cls(isModal ? "fixed w-screen overflow-hidden" : "", ""),
       }}
     >
       {isModal && (
